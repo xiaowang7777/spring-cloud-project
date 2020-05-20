@@ -19,11 +19,6 @@ public class UserInfoServiceImpl implements UserInfoService {
 	@Override
 	public UserInfo logIn(UserInfo userInfo) {
 		log.info("***准备查询***");
-		try {
-			TimeUnit.SECONDS.sleep(3);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		return userInfoMapper.logIn(userInfo);
 	}
 }

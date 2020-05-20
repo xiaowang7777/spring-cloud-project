@@ -1,0 +1,22 @@
+server:
+    port: 8082
+spring:
+    application:
+        name: spring-cloud-project-redis-producer-client
+
+eureka:
+    instance:
+        appname: ${spring.application.name}
+    client:
+        register-with-eureka: true
+        fetch-registry: true
+        service-url:
+            defaultZone: http://127.0.0.1:7001/eureka/
+redis:
+    client:
+        maxActive: 5
+        maxWait: 5
+        maxIdle: 10
+        minIdle: 1
+        addressColony: 47.240.95.83:7001, 47.240.95.83:7002, 47.240.95.83:7003
+        password: wang@123

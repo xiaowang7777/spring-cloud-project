@@ -12,6 +12,7 @@
 		<module>spring-cloud-project-userinfo-producer-client</module>
 		<module>spring-cloud-project-commons</module>
 		<module>spring-cloud-project-userinfo-consumer-client</module>
+		<module>spring-cloud-project-redis-producer-client</module>
 	</modules>
 
 	<packaging>pom</packaging>
@@ -30,6 +31,7 @@
 
 	<properties>
 		<mysql.version>8.0.20</mysql.version>
+		<hutool.version>4.6.4</hutool.version>
 		<lombok.version>1.18.12</lombok.version>
 		<fastjson.version>1.2.62</fastjson.version>
 		<java.source.version>1.8</java.source.version>
@@ -91,6 +93,11 @@
 				<groupId>com.alibaba</groupId>
 				<artifactId>fastjson</artifactId>
 				<version>${fastjson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.hutool</groupId>
+				<artifactId>hutool-all</artifactId>
+				<version>${hutool.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
