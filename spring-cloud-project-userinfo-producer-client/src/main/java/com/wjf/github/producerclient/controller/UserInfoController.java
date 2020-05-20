@@ -27,7 +27,8 @@ public class UserInfoController {
 			@HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "3000"),//时间窗口期
 			@HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "60"),//最大失败比例，在时间窗口期内，失败比例超过将会打开熔断器
 			@HystrixProperty(name = "circuitBreaker.enabled", value = "true"),//是否启用熔断器
-			@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "6000"),//超时时间
+			@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "3000"),//超时时间
+			@HystrixProperty(name = "execution.timeout.enabled", value = "true"),
 			@HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "1000")//最大同时允许请求
 	})
 	public ResultTemplate<UserInfo> logIn(@RequestBody UserInfo userInfo) {

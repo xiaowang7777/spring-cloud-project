@@ -27,11 +27,11 @@ hystrix:
                     enabled: true
                 isolation:
                     thread:
-                        timeoutInMilliseconds: 60000
+                        timeoutInMilliseconds: 30000
 
 ribbon:
     ConnectTimeout: 3000
-    ReadTimeout: 60000
+    ReadTimeout: 3000
 
 feign:
 #    httpclient:
