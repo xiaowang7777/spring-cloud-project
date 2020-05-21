@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @RestController
@@ -44,6 +43,9 @@ public class UserInfoController {
 		log.info("***请求了登录接口***");
 
 		final ResultTemplate<UserInfo> user = userInfoFeignService.logIn(userInfo);
+		if (user.getCode().equals(CodeProperties.LOG_ERROR) || CodeProperties.LOG_USER_NAME_ERROR.equals(user.getCode())) {
+			return user;
+		}
 		final String md5Str = MD5Util.getMD5Str(new Date().getTime() + "_" + user.getT().getUserId());
 		RedisVo redisVo = new RedisVo<>();
 		redisVo.setK(UserTokenPrefixKey.getUserTokenPrefixKey(60 * 60 * 24));

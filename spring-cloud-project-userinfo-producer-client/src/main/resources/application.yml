@@ -9,14 +9,14 @@ spring:
         username: myself
         password: wang@123
         driver-class-name: com.mysql.cj.jdbc.Driver
-    rabbitmq:
-        host: 47.240.95.83
-        port: 5672
-        username: guest
-        password: guest
-        listener:
-            simple:
-                acknowledge-mode: manual #手动ack
+#    rabbitmq:
+#        host: 47.240.95.83
+#        port: 5672
+#        username: guest
+#        password: guest
+#        listener:
+#            simple:
+#                acknowledge-mode: manual #手动ack
     cloud:
         circuitbreaker:
             hystrix:

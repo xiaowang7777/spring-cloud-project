@@ -12,6 +12,6 @@ public class UserInfoFeignServiceFallBack implements UserInfoFeignService {
 	@Override
 	public ResultTemplate<UserInfo> logIn(UserInfo userInfo) {
 		log.info("***登录接口请求报错:" + userInfo.toString() + "***");
-		return ResultTemplate.getFailResult(5001, userInfo);
+		return ResultTemplate.getFailResult(5001, "登录接口请求超时！", userInfo);
 	}
 }

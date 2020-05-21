@@ -17,31 +17,31 @@ public class RabbitMQConfig {
 	@Autowired
 	private CachingConnectionFactory cachingConnectionFactory;
 
-	@Bean
-	public Queue queue() {
-		return new Queue(RabbitConfigProperties.RABBIT_MQ_QUEUE, true);
-	}
-
-	@Bean
-	public TopicExchange topicExchange() {
-		return new TopicExchange(RabbitConfigProperties.RABBIT_MQ_QUEUE);
-	}
-
-	@Bean
-	public Binding binding() {
-		return BindingBuilder.bind(queue()).to(topicExchange()).with(RabbitConfigProperties.RABBIT_MQ_EXCHANGE);
-	}
-
-	@Bean
-	//设置MQ监听器
-	public SimpleMessageListenerContainer simpleMessageListenerContainer(){
-		SimpleMessageListenerContainer container = new SimpleMessageListenerContainer(cachingConnectionFactory);
-		container.setMaxConcurrentConsumers(1);
-		container.setConcurrentConsumers(1);
-		container.setAcknowledgeMode(AcknowledgeMode.MANUAL);
-		container.setQueueNames(RabbitConfigProperties.RABBIT_MQ_QUEUE);
-		container.setMessageListener(rabbitMQListener);
-		return container;
-	}
+//	@Bean
+//	public Queue queue() {
+//		return new Queue(RabbitConfigProperties.RABBIT_MQ_QUEUE, true);
+//	}
+//
+//	@Bean
+//	public TopicExchange topicExchange() {
+//		return new TopicExchange(RabbitConfigProperties.RABBIT_MQ_QUEUE);
+//	}
+//
+//	@Bean
+//	public Binding binding() {
+//		return BindingBuilder.bind(queue()).to(topicExchange()).with(RabbitConfigProperties.RABBIT_MQ_EXCHANGE);
+//	}
+//
+//	@Bean
+//	//设置MQ监听器
+//	public SimpleMessageListenerContainer simpleMessageListenerContainer(){
+//		SimpleMessageListenerContainer container = new SimpleMessageListenerContainer(cachingConnectionFactory);
+//		container.setMaxConcurrentConsumers(1);
+//		container.setConcurrentConsumers(1);
+//		container.setAcknowledgeMode(AcknowledgeMode.MANUAL);
+//		container.setQueueNames(RabbitConfigProperties.RABBIT_MQ_QUEUE);
+//		container.setMessageListener(rabbitMQListener);
+//		return container;
+//	}
 
 }

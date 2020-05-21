@@ -13,6 +13,7 @@
 		<module>spring-cloud-project-commons</module>
 		<module>spring-cloud-project-userinfo-consumer-client</module>
 		<module>spring-cloud-project-redis-producer-client</module>
+		<module>spring-cloud-project-overall-situation-gateway</module>
 	</modules>
 
 	<packaging>pom</packaging>

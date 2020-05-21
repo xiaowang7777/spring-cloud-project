@@ -72,10 +72,6 @@ public class ResultTemplate<T> {
 		return new ResultTemplate<>(code, ResultSym.FAIL, msg, t);
 	}
 
-	public static <T> ResultTemplate<T> getFailResult(Integer code, T t) {
-		return getFailResult(code, "请求失败！", t);
-	}
-
 	public static ResultTemplate getFailResult(Integer code) {
 		return getFailResult(code, null);
 	}

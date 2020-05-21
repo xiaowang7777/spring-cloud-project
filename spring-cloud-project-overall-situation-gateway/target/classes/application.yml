@@ -1,0 +1,19 @@
+server:
+    port: 8888
+spring:
+    application:
+        name: spring-cloud-project-overall-situation-gateway
+    cloud:
+        gateway:
+            discovery:
+                locator:
+                    enabled: true
+            enabled: true
+eureka:
+    client:
+        fetch-registry: true
+        register-with-eureka: true
+        service-url:
+            defaultZone: http://127.0.0.1:7001/eureka/
+    instance:
+        appname: ${spring.application.name}

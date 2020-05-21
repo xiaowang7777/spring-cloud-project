@@ -15,5 +15,13 @@
 		AND userinfo.password=#{password}
 	</select>
 
+	<update id="updateUserNameByUserId" parameterType="com.wjf.github.commons.domain.producer.UserInfo">
+		UPDATE
+			userinfo
+		SET
+			userinfo.user_name=#{userName}
+		WHERE
+			userinfo.user_id=#{userId}
+	</update>
 
 </mapper>
