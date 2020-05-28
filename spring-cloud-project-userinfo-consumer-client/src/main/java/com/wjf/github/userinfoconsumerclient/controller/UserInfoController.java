@@ -42,6 +42,8 @@ public class UserInfoController {
 	public ResultTemplate<UserInfo> logIn(@RequestBody UserInfo userInfo) {
 		log.info("***请求了登录接口***");
 
+		redisService.setExKey("test",100,"aaa");
+
 		final ResultTemplate<UserInfo> user = userInfoFeignService.logIn(userInfo);
 		if (user.getCode().equals(CodeProperties.LOG_ERROR) || CodeProperties.LOG_USER_NAME_ERROR.equals(user.getCode())) {
 			return user;
@@ -51,7 +53,7 @@ public class UserInfoController {
 		redisVo.setK(UserTokenPrefixKey.getUserTokenPrefixKey(60 * 60 * 24));
 		redisVo.setKey(user.getT().getUserId() + "");
 		redisVo.setValue(md5Str);
-		if (redisService.setKey(redisVo).getT()) {
+		if (redisService.setPrefixKey(redisVo).getT()) {
 			return user;
 		}
 		log.error("***redis缓存失败***");

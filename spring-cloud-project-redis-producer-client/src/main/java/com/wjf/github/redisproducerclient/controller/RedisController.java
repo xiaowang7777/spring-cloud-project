@@ -24,17 +24,17 @@ public class RedisController {
 	private RedisService redisService;
 
 	@PostMapping("/setKey")
-	public ResultTemplate<Boolean> setKey(@RequestParam String key, @RequestParam String value) {
-		return ResultTemplate.getSuccessResult(redisService.setKey(key, value));
+	public ResultTemplate<Boolean> setKey(@RequestBody RedisVo redisVo) {
+		return ResultTemplate.getSuccessResult(redisService.setKey(redisVo.getKey(), redisVo.getValue()));
 	}
 
 	@PostMapping("/setExKey")
-	public ResultTemplate<Boolean> setExKey(@RequestParam String key, @RequestParam int expire, @RequestParam String value) {
+	public ResultTemplate<Boolean> setExKey(@RequestParam("key") String key, @RequestParam("expire") int expire, @RequestParam("value") String value) {
 		return ResultTemplate.getSuccessResult(redisService.setExKey(key, expire, value));
 	}
 
 	@PostMapping("/setKey/prefix")
-	public ResultTemplate<Boolean> setKey(@RequestBody RedisVo redisVo) {
+	public ResultTemplate<Boolean> setPrefixKey(@RequestBody RedisVo redisVo) {
 		System.out.println(redisVo);
 		return ResultTemplate.getSuccessResult(redisService.setKey(redisVo.getK(), redisVo.getKey(), redisVo.getValue()));
 	}

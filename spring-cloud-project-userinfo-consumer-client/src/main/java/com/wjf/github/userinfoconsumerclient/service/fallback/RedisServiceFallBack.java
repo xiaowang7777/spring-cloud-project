@@ -10,7 +10,12 @@ import org.springframework.stereotype.Component;
 public class RedisServiceFallBack implements RedisService {
 
 	@Override
-	public ResultTemplate<Boolean> setKey(RedisVo redisVo) {
+	public ResultTemplate<Boolean> setPrefixKey(RedisVo redisVo) {
+		return ResultTemplate.getFailResult(CodeProperties.REDIS_SERVICE_ERROR, "redis请求超时！",false);
+	}
+
+	@Override
+	public ResultTemplate<Boolean> setExKey(String key, int expire, String value) {
 		return ResultTemplate.getFailResult(CodeProperties.REDIS_SERVICE_ERROR, "redis请求超时！",false);
 	}
 }

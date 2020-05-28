@@ -19,7 +19,7 @@ redis:
         maxIdle: 10
         minIdle: 1
         addressColony: 114.55.37.202:7001, 114.55.37.202:7002, 114.55.37.202:7003
-#        password: wang@123
+        password: wang@123
 
 hystrix:
     command:
