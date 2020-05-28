@@ -14,7 +14,8 @@
 		<module>spring-cloud-project-userinfo-consumer-client</module>
 		<module>spring-cloud-project-redis-producer-client</module>
 		<module>spring-cloud-project-overall-situation-gateway</module>
-	</modules>
+        <module>spring-cloud-project-mq-stream-producer</module>
+    </modules>
 
 	<packaging>pom</packaging>
 

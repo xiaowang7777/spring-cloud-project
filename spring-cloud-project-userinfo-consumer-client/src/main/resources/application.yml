@@ -5,13 +5,14 @@ server:
 spring:
     application:
         name: spring-cloud-project-userinfo-consumer-client
-#    rabbitmq:
-#        host: 47.240.95.83
-#        port: 5672
-#        username: guest
-#        password: guest
-#        publisher-returns: true #发送返回
-#        publisher-confirm-type: correlated #发送手动ack
+    rabbitmq:
+        host: 192.168.214.130
+        port: 5672
+        username: wang
+        password: wang@123
+        listener:
+            simple:
+                acknowledge-mode: manual #手动ack
 eureka:
     client:
         fetch-registry: true

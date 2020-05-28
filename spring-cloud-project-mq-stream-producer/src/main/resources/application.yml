@@ -1,0 +1,30 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: spring-cloud-project-mq-stream-producer
+  cloud:
+    stream:
+      binders:
+        rabbit01:
+            type: rabbit
+            environment:
+              spring:
+                rabbitmq:
+                  host: 192.168.214.130
+                  port: 5672
+                  username: wang
+                  password: wang@123
+      bindings:
+        output: #通道名
+          destination: exchange01 #要使用的交换机
+          contentType: application/json #消息类型，，如果是文本则设置为"text/plain"
+          binder: rabbit01 #要绑定的消息服务的名称
+eureka:
+  instance:
+    hostname: ${spring.application.name}
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://127.0.0.1/eureka/
