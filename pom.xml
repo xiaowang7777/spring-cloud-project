@@ -40,7 +40,7 @@
 		<java.target.version>1.8</java.target.version>
 		<project.version>1.0-SNAPSHOT</project.version>
 		<redis.client.version>2.9.3</redis.client.version>
-		<druid.spring.version>1.1.20</druid.spring.version>
+		<druid.spring.version>1.1.10</druid.spring.version>
 		<maven.compiler.version>3.8.1</maven.compiler.version>
 		<mybatis.spring.version>2.1.2</mybatis.spring.version>
 		<spring.cloud.version>Hoxton.SR4</spring.cloud.version>

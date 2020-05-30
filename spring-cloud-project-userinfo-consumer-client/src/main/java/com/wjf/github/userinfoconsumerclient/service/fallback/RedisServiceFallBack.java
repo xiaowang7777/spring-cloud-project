@@ -18,4 +18,9 @@ public class RedisServiceFallBack implements RedisService {
 	public ResultTemplate<Boolean> setExKey(String key, int expire, String value) {
 		return ResultTemplate.getFailResult(CodeProperties.REDIS_SERVICE_ERROR, "redis请求超时！",false);
 	}
+
+	@Override
+	public ResultTemplate<String> getValue(String key) {
+		return null;
+	}
 }

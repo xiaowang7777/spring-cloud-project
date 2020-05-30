@@ -6,7 +6,7 @@ spring:
     application:
         name: spring-cloud-project-userinfo-consumer-client
     rabbitmq:
-        host: 192.168.214.130
+        host: 47.240.95.83
         port: 5672
         username: wang
         password: wang@123
