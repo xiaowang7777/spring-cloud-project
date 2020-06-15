@@ -12,6 +12,7 @@ import reactor.core.publisher.Mono;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Objects;
 
 public class GateWayFilter01 implements GatewayFilter, Ordered {
 
@@ -26,7 +27,7 @@ public class GateWayFilter01 implements GatewayFilter, Ordered {
 		for (String allowHeader : allowHeaders) {
 			System.out.println(allowHeader);
 		}
-		logger.info(exchange.getAttribute("cachedRequestBodyObject").toString());
+		logger.info(Objects.requireNonNull(exchange.getAttribute("cachedRequestBodyObject")).toString());
 		logger.info("******请求地址:" + request.getURI().getHost() + "***请求路径:" + uri.getPath() + "******");
 		return chain.filter(exchange);
 	}

@@ -15,7 +15,8 @@
 		<module>spring-cloud-project-redis-producer-client</module>
 		<module>spring-cloud-project-overall-situation-gateway</module>
         <module>spring-cloud-project-mq-stream-producer</module>
-    </modules>
+		<module>spring-cloud-alibaba-project-nacos-test</module>
+	</modules>
 
 	<packaging>pom</packaging>
 

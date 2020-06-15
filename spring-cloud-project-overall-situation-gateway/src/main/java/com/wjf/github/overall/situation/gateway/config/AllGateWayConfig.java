@@ -52,6 +52,7 @@ public class AllGateWayConfig {
 						.uri("lb://spring-cloud-project-userinfo-consumer-client/")
 						.filter(new GateWayFilter01())
 		);
+
 		return routes.build();
 	}
 

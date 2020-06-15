@@ -1,0 +1,15 @@
+server:
+    port: 8081
+
+spring:
+    application:
+        name: spring-cloud-alibaba-project-nacos-test
+    cloud:
+        nacos:
+            discovery:
+                server-addr: 47.240.95.83:80
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"

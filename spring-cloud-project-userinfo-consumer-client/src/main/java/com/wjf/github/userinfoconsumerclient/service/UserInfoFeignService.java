@@ -1,6 +1,5 @@
 package com.wjf.github.userinfoconsumerclient.service;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.wjf.github.commons.domain.producer.UserInfo;
 import com.wjf.github.commons.util.ResultTemplate;
 import com.wjf.github.userinfoconsumerclient.service.fallback.UserInfoFeignServiceFallBack;
