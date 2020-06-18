@@ -1,0 +1,33 @@
+server:
+    port: 8082
+
+spring:
+    application:
+        name: spring-cloud-alibaba-project-nacos-comsuer
+    cloud:
+        nacos:
+            discovery:
+                server-addr: 47.240.95.83:80
+                heart-beat-interval: 3000
+                heart-beat-timeout: 9000
+        sentinel:
+            transport:
+                dashboard: localhost:8080
+                port: 8720
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"
+
+feign:
+    sentinel:
+        enabled: true
+
+ribbon:
+    ReadTimeout: 8000
+    ConnectTimeout: 3000
+    MaxAutoRetries: 1 #同一台实例最大重试次数,不包括首次调用
+    MaxAutoRetriesNextServer: 1 #重试负载均衡其他的实例最大重试次数,不包括首次调用
+    OkToRetryOnAllOperations: false  #是否所有操作都重试

@@ -8,6 +8,13 @@ spring:
         nacos:
             discovery:
                 server-addr: 47.240.95.83:80
+                heart-beat-interval: 3000
+                heart-beat-timeout: 9000
+        sentinel:
+            transport:
+                dashboard: localhost:8080
+                port: 8720
+                heartbeat-interval-ms: 3000
 management:
     endpoints:
         web:

@@ -9,6 +9,7 @@ spring:
                 locator:
                     enabled: true
             enabled: true
+
 eureka:
     client:
         fetch-registry: true

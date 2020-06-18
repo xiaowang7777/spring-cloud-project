@@ -1,0 +1,17 @@
+server:
+    port: 8098
+
+spring:
+    application:
+        name: spring-cloud-alibaba-nacos-gateway-project
+    cloud:
+        nacos:
+            discovery:
+                server-addr: 47.240.95.83:80
+                heart-beat-timeout: 9000
+                heart-beat-interval: 3000
+        gateway:
+            enabled: true
+            discovery:
+                locator:
+                    enabled: true
