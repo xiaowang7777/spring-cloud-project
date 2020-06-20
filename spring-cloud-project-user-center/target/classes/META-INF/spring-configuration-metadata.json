@@ -1,0 +1,76 @@
+{
+  "groups": [
+    {
+      "name": "redis.client",
+      "type": "com.springcloud.userCenter.config.RedisClientProperties",
+      "sourceType": "com.springcloud.userCenter.config.RedisClientProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "redis.client.address-colony",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "com.springcloud.userCenter.config.RedisClientProperties"
+    },
+    {
+      "name": "redis.client.client-name",
+      "type": "java.lang.String",
+      "sourceType": "com.springcloud.userCenter.config.RedisClientProperties",
+      "defaultValue": "defaultJedisCluster"
+    },
+    {
+      "name": "redis.client.connect-time-out",
+      "type": "java.lang.Integer",
+      "sourceType": "com.springcloud.userCenter.config.RedisClientProperties",
+      "defaultValue": 3000
+    },
+    {
+      "name": "redis.client.host",
+      "type": "java.lang.String",
+      "sourceType": "com.springcloud.userCenter.config.RedisClientProperties"
+    },
+    {
+      "name": "redis.client.max-active",
+      "type": "java.lang.Integer",
+      "sourceType": "com.springcloud.userCenter.config.RedisClientProperties"
+    },
+    {
+      "name": "redis.client.max-attempts",
+      "type": "java.lang.Integer",
+      "sourceType": "com.springcloud.userCenter.config.RedisClientProperties",
+      "defaultValue": 5
+    },
+    {
+      "name": "redis.client.max-idle",
+      "type": "java.lang.Integer",
+      "sourceType": "com.springcloud.userCenter.config.RedisClientProperties"
+    },
+    {
+      "name": "redis.client.max-wait",
+      "type": "java.lang.Integer",
+      "sourceType": "com.springcloud.userCenter.config.RedisClientProperties"
+    },
+    {
+      "name": "redis.client.min-idle",
+      "type": "java.lang.Integer",
+      "sourceType": "com.springcloud.userCenter.config.RedisClientProperties"
+    },
+    {
+      "name": "redis.client.password",
+      "type": "java.lang.String",
+      "sourceType": "com.springcloud.userCenter.config.RedisClientProperties"
+    },
+    {
+      "name": "redis.client.port",
+      "type": "java.lang.Integer",
+      "sourceType": "com.springcloud.userCenter.config.RedisClientProperties"
+    },
+    {
+      "name": "redis.client.so-time-out",
+      "type": "java.lang.Integer",
+      "sourceType": "com.springcloud.userCenter.config.RedisClientProperties",
+      "defaultValue": 3000
+    }
+  ],
+  "hints": []
+}

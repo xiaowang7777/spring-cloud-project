@@ -53,4 +53,5 @@ public class GateWayConfig {
 		});
 		return routes.build();
 	}
+
 }

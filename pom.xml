@@ -18,6 +18,7 @@
 		<module>spring-cloud-alibaba-project-nacos-test</module>
 		<module>spring-cloud-alibaba-project-nacos-comsuer</module>
 		<module>spring-cloud-alibaba-nacos-gateway-project</module>
+		<module>spring-cloud-project-user-center</module>
 	</modules>
 
 	<packaging>pom</packaging>
