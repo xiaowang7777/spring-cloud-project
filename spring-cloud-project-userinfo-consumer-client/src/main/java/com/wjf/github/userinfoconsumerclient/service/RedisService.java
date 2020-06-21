@@ -17,4 +17,7 @@ public interface RedisService {
 
 	@PostMapping("/setExKey")
 	ResultTemplate<Boolean> setExKey(@RequestParam("key") String key, @RequestParam("expire") int expire, @RequestParam("value") String value);
+
+	@PostMapping("/getValue")
+	public ResultTemplate<String> getValue(@RequestParam String key);
 }

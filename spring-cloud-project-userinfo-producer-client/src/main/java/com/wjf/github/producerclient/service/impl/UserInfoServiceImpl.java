@@ -6,8 +6,8 @@ import com.wjf.github.producerclient.service.UserInfoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.concurrent.TimeUnit;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.TransactionDefinition;
 
 @Service
 @Slf4j
@@ -15,6 +15,12 @@ public class UserInfoServiceImpl implements UserInfoService {
 
 	@Autowired
 	private UserInfoMapper userInfoMapper;
+
+	@Autowired
+	PlatformTransactionManager transactionManager;
+
+	@Autowired
+	TransactionDefinition transactionDefinition;
 
 	@Override
 	public UserInfo logIn(UserInfo userInfo) {

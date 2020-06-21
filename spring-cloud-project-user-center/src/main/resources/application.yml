@@ -1,0 +1,104 @@
+server:
+    port: 8099
+
+spring:
+    application:
+        name: spring-cloud-project-user-center
+    cloud:
+        nacos:
+            discovery:
+                heart-beat-interval: 3000
+                heart-beat-timeout: 9000
+                server-addr: 47.240.95.83:80
+        sentinel:
+            transport:
+                port: 8720
+                dashboard: 127.0.0.1:8080
+    datasource:
+        url: jdbc:mysql://47.240.95.83:3360/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=true
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: myself
+        password: wang@123
+        druid:
+            #初始化时建立物理连接的个数
+            initial-size: 5
+            #最小连接池数量
+            min-idle: 5
+            #最大连接池数量 maxIdle已经不再使用
+            max-active: 20
+            #获取连接时最大等待时间，单位毫秒
+            max-wait: 60000
+            #申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。
+            test-while-idle: true
+            #既作为检测的间隔时间又作为testWhileIdel执行的依据
+            time-between-eviction-runs-millis: 60000
+            #销毁线程时检测当前连接的最后活动时间和当前时间差大于该值时，关闭当前连接
+            min-evictable-idle-time-millis: 300000
+            #用来检测连接是否有效的sql 必须是一个查询语句
+            #mysql中为 select 'x'
+            #oracle中为 select 1 from dual
+            validation-query: select 'x'
+            #申请连接时会执行validationQuery检测连接是否有效,开启会降低性能,默认为true
+            test-on-borrow: false
+            #归还连接时会执行validationQuery检测连接是否有效,开启会降低性能,默认为true
+            test-on-return: false
+            #当数据库抛出不可恢复的异常时,抛弃该连接
+#            exception-sorter: true
+            #是否缓存preparedStatement,mysql5.5+建议开启
+            pool-prepared-statements: true
+            #当值大于0时poolPreparedStatements会自动修改为true
+            max-pool-prepared-statement-per-connection-size: 20
+            #配置扩展插件
+            filters: stat,wall
+#            connection-properties:
+#                druid:
+#                    stat:
+#                        mergeSql: true
+            filter:
+                stat:
+#                    打开mergeSql功能；慢SQL记录
+                    slow-sql-millis: 500
+                    merge-sql: true
+            #合并多个DruidDataSource的监控数据
+            use-global-data-source-stat: true
+            stat-view-servlet:
+                #设置访问druid监控页的账号,默认没有
+                login-username: admin
+                #设置访问druid监控页的密码,默认没有
+                login-password: admin
+    jackson:
+        time-zone: GMT+8
+        date-format: yyyy-MM-dd HH:mm:ss
+        deserialization:
+            USE_JAVA_ARRAY_FOR_JSON_ARRAY: true
+            FAIL_ON_NULL_CREATOR_PROPERTIES: true
+        parser:
+            ALLOW_SINGLE_QUOTES: true
+
+
+redis:
+    client:
+        maxActive: 5
+        maxWait: 5
+        maxIdle: 10
+        minIdle: 1
+        addressColony: 114.55.37.202:7001, 114.55.37.202:7002, 114.55.37.202:7003
+        password: wang@123
+
+ribbon:
+    ReadTimeOut: 6000
+    ConnectionTimeOut: 3000
+
+mybatis:
+    mapper-locations: classpath:static/mapper/*.xml
+    type-aliases-package: com.springcloud.userCenter.*.**
+    configuration:
+        map-underscore-to-camel-case: true
+
+feign:
+    sentinel:
+        enabled: true
+
+logging:
+    level:
+        com.springcloud.userCenter.mapper.UserInfoMapper: debug

@@ -3,15 +3,19 @@ package com.wjf.github.commons.domain.redis.vo;
 import com.wjf.github.commons.domain.redis.behavior.EXPX;
 import com.wjf.github.commons.domain.redis.behavior.NXXX;
 import com.wjf.github.commons.domain.redis.prefixkey.BasePrefixKey;
+import org.springframework.validation.annotation.Validated;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 public class RedisVo<T> implements Serializable {
 
 	private static final long serialVersionUID = -1520683351759006087L;
 
+	@NotNull
 	private String key;
 
+	@NotNull
 	private String value;
 
 	private BasePrefixKey k;

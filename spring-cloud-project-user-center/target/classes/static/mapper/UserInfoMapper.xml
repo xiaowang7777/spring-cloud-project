@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springcloud.userCenter.mapper.UserInfoMapper">
+
+	<select id="userLoginByAccount" resultType="com.springcloud.userCenter.vo.UserNormalInfo" parameterType="com.springcloud.userCenter.domain.UserLoginDo">
+		SELECT
+			t_user_info.user_id,
+			t_user_info.user_name,
+			t_user_info.user_account,
+			t_user_info.telephone_number
+		FROM
+			t_user_info
+		<where>
+			<if test="userAccount!=null and userAccount!=''">
+				AND t_user_info.user_account=#{userAccount}
+			</if>
+			<if test="password!=null and password!=''">
+				AND t_user_info.password=#{password}
+			</if>
+		</where>
+	</select>
+
+	<select id="userLoginByTelephoneNumber" resultType="com.springcloud.userCenter.vo.UserNormalInfo" parameterType="com.springcloud.userCenter.domain.UserLoginDo">
+		SELECT
+		t_user_info.user_id,
+		t_user_info.user_name,
+		t_user_info.user_account,
+		t_user_info.telephone_number
+		FROM
+		t_user_info
+		<where>
+			<if test="telephoneNumber!=null and telephoneNumber!=''">
+				AND t_user_info.telephone_number=#{telephoneNumber}
+			</if>
+			<if test="password!=null and password!=''">
+				AND t_user_info.password=#{password}
+			</if>
+		</where>
+	</select>
+
+</mapper>

@@ -1,0 +1,22 @@
+server:
+    port: 8081
+
+spring:
+    application:
+        name: spring-cloud-alibaba-project-nacos-test
+    cloud:
+        nacos:
+            discovery:
+                server-addr: 47.240.95.83:80
+                heart-beat-interval: 3000
+                heart-beat-timeout: 30000
+        sentinel:
+            transport:
+                dashboard: localhost:8080
+                port: 8720
+                heartbeat-interval-ms: 3000
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"

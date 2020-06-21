@@ -10,9 +10,10 @@ import com.wjf.github.commons.util.ResultTemplate;
 import com.wjf.github.redisproducerclient.service.RedisService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
 
 @Slf4j
 @RestController
@@ -24,7 +25,7 @@ public class RedisController {
 	private RedisService redisService;
 
 	@PostMapping("/setKey")
-	public ResultTemplate<Boolean> setKey(@RequestBody RedisVo redisVo) {
+	public ResultTemplate<Boolean> setKey(@RequestBody @Validated RedisVo redisVo) {
 		return ResultTemplate.getSuccessResult(redisService.setKey(redisVo.getKey(), redisVo.getValue()));
 	}
 
@@ -34,7 +35,7 @@ public class RedisController {
 	}
 
 	@PostMapping("/setKey/prefix")
-	public ResultTemplate<Boolean> setPrefixKey(@RequestBody RedisVo redisVo) {
+	public ResultTemplate<Boolean> setPrefixKey(@RequestBody @Validated RedisVo redisVo) {
 		System.out.println(redisVo);
 		return ResultTemplate.getSuccessResult(redisService.setKey(redisVo.getK(), redisVo.getKey(), redisVo.getValue()));
 	}
@@ -109,8 +110,8 @@ public class RedisController {
 		return ResultTemplate.getSuccessResult(redisService.expire(key, name));
 	}
 
-	public ResultTemplate defaultFallBack() {
-		log.error("***redis服务挂掉啦！***");
+	public ResultTemplate defaultFallBack(HttpServletRequest request) {
+		log.error("***请求地址：{}---redis服务挂掉啦！***",request.getPathInfo());
 		return ResultTemplate.getFailResult(CodeProperties.REDIS_SERVICE_ERROR, "redis服务失败！", false);
 	}
 }
