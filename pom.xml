@@ -36,7 +36,7 @@
 	</distributionManagement>
 
 	<properties>
-		<mysql.version>8.0.20</mysql.version>
+		<mysql.version>8.0.28</mysql.version>
 		<hutool.version>4.6.4</hutool.version>
 		<lombok.version>1.18.12</lombok.version>
 		<fastjson.version>1.2.62</fastjson.version>
